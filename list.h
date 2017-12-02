@@ -11,5 +11,5 @@ typedef struct List{
     int length;
     int size;
 } list;
-int initList(list &l);
+int initList(list *l);
 #endif //LEARN_LIST_H

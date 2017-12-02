@@ -9,19 +9,19 @@
 
 int main(){
     struct List lis;
-    int x = initList(lis);
+    int x = initList(&lis);
     printf("List:%d\n", lis.elem);
-    printf("List:%d\n", lis.size);
-    printf("List:%d", INIT_SIZE * sizeof(int));
+    printf("List:%d", lis.size);
+    printf("List:%d", lis.length);
     return 0;
 }
 
-int initList(list &l){
-    l.elem = (int *)malloc(INIT_SIZE * sizeof(int));
-    if(! l.elem) {
+int initList(list *l){
+    (*l).elem = (int *)malloc(INIT_SIZE * sizeof(int));
+    if(! (*l).elem) {
         return (int)false;
     }
-    l.length = 0;
-    l.size = INIT_SIZE;
+    (*l).length = 0;
+    (*l).size = INIT_SIZE;
     return (int)true;
 }
