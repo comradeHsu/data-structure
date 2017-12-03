@@ -12,4 +12,6 @@ typedef struct List{
     int size;
 } list;
 int initList(list *l);
+int insert(list *l, int i, int ele);
+int get(list l, int i);
 #endif //LEARN_LIST_H
