@@ -12,12 +12,13 @@ int main(){
     int x = initList(&lis);
     int q = insert(&lis,1,2);
     insert(&lis,2,3);
-//    printf("List:%d\n", lis.elem);
+    removeList(&lis,1);
+//    printf("List:%d\n", lis.elem[2]);
 //    printf("List:%d\n", lis.size);
 //    printf("List:%d\n", lis.length);
 //    printf("q:%d",lis.elem);
     for(int i = 0; i<lis.length; i++){
-        printf("q:%d\n",get(lis,i));
+        printf("q:%d,v:%d\n",get(lis,i),i);
     }
     return 0;
 }
@@ -54,4 +55,17 @@ int insert(list *l, int i, int ele){
 
 int get(list l, int i){
     return l.elem[i];
+}
+
+int removeList(list *l,int i){
+    if(i < 1 || i> (*l).length + 1){
+        return (int)false;
+    }
+    int * p = &((*l).elem[i-1]);
+    int * q = (*l).elem+(*l).length-1;
+    for(++p; p <= q;++p){
+        *(p-1) = *p;
+    }
+    --(*l).length;
+    return (int)true;
 }

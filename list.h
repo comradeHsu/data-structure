@@ -14,4 +14,5 @@ typedef struct List{
 int initList(list *l);
 int insert(list *l, int i, int ele);
 int get(list l, int i);
+int removeList(list *l,int i);
 #endif //LEARN_LIST_H
