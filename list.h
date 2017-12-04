@@ -15,4 +15,6 @@ int initList(list *l);
 int insert(list *l, int i, int ele);
 int get(list l, int i);
 int removeList(list *l,int i);
+int locate(list l,int e, int (* compare)(int,int));
+int compare(int ele, int to);
 #endif //LEARN_LIST_H

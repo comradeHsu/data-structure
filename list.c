@@ -12,11 +12,12 @@ int main(){
     int x = initList(&lis);
     int q = insert(&lis,1,2);
     insert(&lis,2,3);
-    removeList(&lis,1);
+    insert(&lis,3,9);
+    int c = locate(lis,5, compare);
 //    printf("List:%d\n", lis.elem[2]);
 //    printf("List:%d\n", lis.size);
 //    printf("List:%d\n", lis.length);
-//    printf("q:%d",lis.elem);
+    printf("ccc:%d",c);
     for(int i = 0; i<lis.length; i++){
         printf("q:%d,v:%d\n",get(lis,i),i);
     }
@@ -68,4 +69,19 @@ int removeList(list *l,int i){
     }
     --(*l).length;
     return (int)true;
+}
+
+int locate(list l,int e, int (* compare)(int,int)){
+    int i = 1;
+    int * p = l.elem;
+    while(i <= l.length && (* compare)(*p++,e) != 1) ++i;
+    if(i <= l.length){
+        return i;
+    } else {
+        return -1;
+    }
+}
+
+int compare(int ele, int to){
+    return ele == to;
 }
