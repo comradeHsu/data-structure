@@ -9,17 +9,22 @@
 
 int main(){
     struct List lis;
+    struct List a;
+    struct List c;
     int x = initList(&lis);
     int q = insert(&lis,1,2);
     insert(&lis,2,3);
     insert(&lis,3,9);
-    int c = locate(lis,5, compare);
+    initList(&a);
+    insert(&lis,1,5);
+    merge(lis,a,&c);
+//    int c = locate(lis,5, compare);
 //    printf("List:%d\n", lis.elem[2]);
 //    printf("List:%d\n", lis.size);
 //    printf("List:%d\n", lis.length);
     printf("ccc:%d",c);
-    for(int i = 0; i<lis.length; i++){
-        printf("q:%d,v:%d\n",get(lis,i),i);
+    for(int i = 0; i<c.length; i++){
+        printf("q:%d,v:%d\n",get(c,i),i);
     }
     return 0;
 }
@@ -84,4 +89,29 @@ int locate(list l,int e, int (* compare)(int,int)){
 
 int compare(int ele, int to){
     return ele == to;
+}
+
+void merge(list a, list b, list * n){ //此方法合并会打乱原有list顺序
+    int * pa = a.elem;
+    int * pb = b.elem;
+    n -> size = n -> length = a.length + b.length;
+    int * pc = (*n).elem = (int *) malloc(n -> size * sizeof(int));
+    if(! n ->elem){
+        exit(0);
+    }
+    int * pa_last = a.elem + a.length - 1;
+    int * pb_last = b.elem + b.length -1;
+    while(pa <= pa_last && pb <= pb_last){
+        if(* pa <= *pb) {
+            * pc ++ = *pa++;
+        } else {
+            * pc ++ = *pb++;
+        }
+    }
+    while(pa <= pa_last){
+        * pc ++ = *pa++;
+    }
+    while(pb <= pb_last){
+        * pc ++ = *pb++;
+    }
 }
