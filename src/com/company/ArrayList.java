@@ -67,4 +67,16 @@ public class ArrayList<E> {
         return;
     }
 
+    public E remove(int index){
+        if (index < 0 || index >= size)
+            throw new ArrayIndexOutOfBoundsException();
+        E oldValue = (E) elements[index];
+        for(int i = index; i < size-1; i++){
+            elements[i] = elements[i+1];
+        }
+        elements[--size] = null;
+        return oldValue;
+    }
+
+
 }
