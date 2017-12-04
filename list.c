@@ -115,3 +115,21 @@ void merge(list a, list b, list * n){ //此方法合并会打乱原有list顺序
         * pc ++ = *pb++;
     }
 }
+
+void concat(list a, list b, list * n){ //此方法会按照a.b的顺序链接
+    int * pa = a.elem;
+    int * pb = b.elem;
+    n -> size = n -> length = a.length + b.length;
+    int * pc = (*n).elem = (int *) malloc(n -> size * sizeof(int));
+    if(! n ->elem){
+        exit(0);
+    }
+    int * pa_last = a.elem + a.length - 1;
+    int * pb_last = b.elem + b.length -1;
+    while(pa <= pa_last){
+        * pc ++ = *pa++;
+    }
+    while(pb <= pb_last){
+        * pc ++ = *pb++;
+    }
+}

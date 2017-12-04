@@ -18,4 +18,5 @@ int removeList(list *l,int i);
 int locate(list l,int e, int (* compare)(int,int));
 int compare(int ele, int to);
 void merge(list a, list b, list * n);
+void concat(list a, list b, list * n);
 #endif //LEARN_LIST_H
