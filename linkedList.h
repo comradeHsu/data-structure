@@ -10,6 +10,6 @@
 typedef struct LNode{
     int data;
     struct LNode * next;
-} LNode;
-void create(LNode *l,int n);
+} LNode, * LinkedList; //* LinkedList是这个结构体的结构指针
+void create(LinkedList l,int n);
 #endif //DATA_STRUCTURE_C_LINKEDLIST_H
