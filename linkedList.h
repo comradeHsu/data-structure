@@ -12,4 +12,5 @@ typedef struct LNode{
     struct LNode * next;
 } LNode, * LinkedList; //* LinkedList是这个结构体的结构指针
 void create(LinkedList l,int n);
+int get(LinkedList l, int i, int *ele);
 #endif //DATA_STRUCTURE_C_LINKEDLIST_H
