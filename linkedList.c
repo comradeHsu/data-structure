@@ -6,20 +6,9 @@ int size;
 int main(){
     LinkedList list;
     create(&list,5);
-//    while((list->next) != NULL){
-//        printf("data:%d\n",(*list).data);
-//        printf("next:%d\n",(*list).next);
-//        list = list->next;
-//    }
-    printf("---------");
     insert(&list,3,9);
-    while((list->next) != NULL){
-        printf("data:%d\n",(*list).data);
-        printf("next:%d\n",(*list).next);
-        list = list->next;
-    }
     int h = 1;
-    get(&list,3,&h);
+    get(list,3,&h);
     printf("%d",h);
     return 0;
 }
@@ -37,10 +26,10 @@ void create(LinkedList *l,int n){ //????????
 }
 
 int get(LinkedList l, int i, int *ele){
-    LinkedList p = l ->next;
+    LinkedList p =l;
     int j = 0;
-    while(p && j < i+2){
-        p = l ->next;
+    while(p && j < i){
+        p = p ->next;
         ++ j;
     }
     if(!p || j > i){
