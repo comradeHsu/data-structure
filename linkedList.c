@@ -5,11 +5,16 @@
 int size;
 int main(){
     LinkedList list;
-    create(&list,5);
-    insert(&list,3,9);
+    LinkedList a;
+    LinkedList b;
+    create(&b,5);
+    create(&a,5);
+    insert(&a,3,9);
+    concat(&a,&b,&list);
 //    int h = 1;
 //    get(list,3,&h);
 //    removeEle(&list,3);
+
     while(list ->next){
         printf("data:%d\n",list->data);
         list = list ->next;
@@ -76,4 +81,18 @@ int removeEle(LinkedList * L,int i){
     int e = q ->data;
     free(q);
     return e;
+}
+
+int concat(LinkedList * a, LinkedList * b,LinkedList * n){
+    printf("start");
+    LinkedList p;
+    *n = p = *a;
+    while((*a)->next){
+        p->next = *a;
+        *a = (*a) ->next;
+        printf("start");
+    }
+    p->next = *b;
+//    free(*b);
+    return 1;
 }

@@ -16,4 +16,5 @@ void create(LinkedList *l,int n);
 int get(LinkedList l, int i, int *ele);
 int insert(LinkedList *l,int i,int e);
 int removeEle(LinkedList * L,int i);
+int concat(LinkedList * a, LinkedList * b,LinkedList * n);
 #endif //DATA_STRUCTURE_C_LINKEDLIST_H
