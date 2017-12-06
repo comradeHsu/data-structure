@@ -7,9 +7,14 @@ int main(){
     LinkedList list;
     create(&list,5);
     insert(&list,3,9);
-    int h = 1;
-    get(list,3,&h);
-    printf("%d",h);
+//    int h = 1;
+//    get(list,3,&h);
+//    removeEle(&list,3);
+    while(list ->next){
+        printf("data:%d\n",list->data);
+        list = list ->next;
+    }
+//    printf("%d",0);
     return 0;
 }
 
@@ -54,4 +59,21 @@ int insert(LinkedList *l,int i,int e){
     s ->next = p ->next;
     p ->next = s;
     return 1;
+}
+
+int removeEle(LinkedList * L,int i){
+    LinkedList p = *L;
+    int j = 0;
+    while(p->next && j < i-1){
+        p = p -> next;
+        ++j;
+    }
+    if(!(p ->next) || j > i-1){
+        return 0;
+    }
+    LinkedList q = p ->next;
+    p->next = q ->next;
+    int e = q ->data;
+    free(q);
+    return e;
 }
