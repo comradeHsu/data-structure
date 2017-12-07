@@ -23,7 +23,7 @@ int main(){
     return 0;
 }
 
-void create(LinkedList *l,int n){ //????????
+void create(LinkedList *l,int n){ //指针本身也是数据
     (*l) = (LinkedList)malloc(sizeof(LNode));
     (*l) -> next = NULL;
     (*l) -> data = 0;
