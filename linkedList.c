@@ -84,15 +84,15 @@ int removeEle(LinkedList * L,int i){
 }
 
 int concat(LinkedList * a, LinkedList * b,LinkedList * n){
-    printf("start");
     LinkedList p;
+    LinkedList pa = (*a)->next;
     *n = p = *a;
-    while((*a)->next){
-        p->next = *a;
-        *a = (*a) ->next;
-        printf("start");
+    while(pa){
+        p->next = pa; //
+        pa = pa ->next;//??a??????
+        p = p ->next;
     }
-    p->next = *b;
+    p->next = *b;//?????????b????
 //    free(*b);
     return 1;
 }
