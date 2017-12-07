@@ -89,10 +89,10 @@ int concat(LinkedList * a, LinkedList * b,LinkedList * n){
     *n = p = *a;
     while(pa){
         p->next = pa; //
-        pa = pa ->next;//??a??????
+        pa = pa ->next;//遍历a的所有节点
         p = p ->next;
     }
-    p->next = *b;//?????????b????
+    p->next = *b;//最后一个节点指向b的头结点
 //    free(*b);
     return 1;
 }
