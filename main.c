@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <malloc.h>
-#include "list.h"
+#include "list/list.h"
 #define LIST_INIT_SIZE 100;
 #define LISTINCREMENT 10;
 
