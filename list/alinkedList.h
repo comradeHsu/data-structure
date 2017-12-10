@@ -13,12 +13,18 @@
 typedef struct Node {
     int data;
     struct Node * next;
-} * Link, *Position;
+}Node, * Link, *Position;
 
 typedef struct {
     Link head,tail;
     int length;
 } LinkedList;
 
-int initList(LinkedList * L);
+int initList(LinkedList ** L);
+
+int first(LinkedList list);
+
+int last(LinkedList list);
+
+int add(LinkedList * list, int ele);
 #endif //DATA_STRUCTURE_C_ALINKEDLIST_H

@@ -5,15 +5,17 @@
 
 int main(){
     LinkedList * list;
-    initList(list);
+    initList(&list);
+    add(list,5);
+    printf("data:%d",list->length);
     return 0;
 }
 
-int initList(LinkedList * L){
-    L = (LinkedList *)malloc(sizeof(LinkedList));
-    L->length = 0;
-    L->head = NULL;
-    L -> tail = NULL;
+int initList(LinkedList * *L){
+    *L = (LinkedList *)malloc(sizeof(LinkedList));
+    (*L)->length = 0;
+    (*L)->head = NULL;
+    (*L) -> tail = NULL;
     return true;
 }
 
@@ -30,6 +32,7 @@ int last(LinkedList list){
 int add(LinkedList * list, int ele){
     Link link;
     if(list->tail == NULL){
+        printf("zheli");
         link = (Link)malloc(sizeof(Node));
         list->head = link;
         list->tail = link;
