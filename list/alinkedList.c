@@ -21,3 +21,27 @@ int first(LinkedList list){
     Link link = list.head;
     return link ->data;
 }
+
+int last(LinkedList list){
+    Link link = list.tail;
+    return link ->data;
+}
+
+int add(LinkedList * list, int ele){
+    Link link;
+    if(list->tail == NULL){
+        link = (Link)malloc(sizeof(Node));
+        list->head = link;
+        list->tail = link;
+        list->length = 1;
+        link->data = ele;
+        link->next = NULL;
+        return true;
+    }
+    Link next = (Link)malloc(sizeof(Node));
+    next->next = NULL;
+    next->data = ele;
+    link = list->tail;
+    link->next = next;
+    return 1;
+}
