@@ -8,13 +8,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
+#define true 1;
+#define false 0;
 typedef struct Node {
     int data;
     struct Node * next;
-} *Link, *Position;
+} * Link, *Position;
 
 typedef struct {
     Link head,tail;
     int length;
 } LinkedList;
+
+int initList(LinkedList * L);
 #endif //DATA_STRUCTURE_C_ALINKEDLIST_H
