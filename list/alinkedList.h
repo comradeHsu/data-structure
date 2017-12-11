@@ -43,4 +43,6 @@ int delIndex(LinkedList * list, int index);
 int indexOf(LinkedList list, int ele ,int (* compare)(int,int));
 
 int compare(int ele, int to);
+
+int concat(LinkedList * list,LinkedList * alist);
 #endif //DATA_STRUCTURE_C_ALINKEDLIST_H

@@ -5,12 +5,17 @@
 
 int main(){
     LinkedList * list;
+    LinkedList * a;
     initList(&list);
+    initList(&a);
     add(list,5);
     add(list,4);
     add(list,3);
+    add(a,2);
+    add(a,1);
+    concat(list,a);
     int index = indexOf(*list,4,&compare);
-    printf("data:%d",index);
+    printf("data:%d",get(*list,3));
     return 0;
 }
 
@@ -150,4 +155,16 @@ int indexOf(LinkedList list, int ele ,int (* compare)(int,int)){
 
 int compare(int ele, int to){
     return ele == to;
+}
+
+int concat(LinkedList * list,LinkedList * alist){
+    Link head = list->head;
+    while(head->next){
+        head = head->next;
+    }
+    head->next = alist->head;
+    list->length = list->length + alist->length;
+    list->tail = alist->tail;
+    free(alist);
+    return true;
 }
