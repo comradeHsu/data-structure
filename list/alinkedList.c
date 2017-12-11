@@ -8,6 +8,7 @@ int main(){
     initList(&list);
     add(list,5);
     add(list,4);
+    set(list,1,9);
     int data = get(*list,1);
     printf("data:%d",data);
     return 0;
@@ -93,4 +94,18 @@ int get(LinkedList list, int index){
     }
     int data = head->data;
     return data;
+}
+
+int set(LinkedList * list, int index, int data){
+    if(index >= list->length){
+        return false;
+    }
+    Link head = list->head;
+    int curIndex = 0;
+    while(head && curIndex < index){
+        head = head->next;
+        ++curIndex;
+    }
+    head->data = data;
+    return true;
 }
