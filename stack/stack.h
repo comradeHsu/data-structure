@@ -20,4 +20,6 @@ typedef struct Stack{
 } Stack;
 
 int initStack(Stack * stack);
+
+int push(Stack * stack,int ele);
 #endif //DATA_STRUCTURE_C_STACK_H
