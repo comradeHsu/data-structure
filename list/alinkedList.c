@@ -5,17 +5,13 @@
 
 int main(){
     LinkedList * list;
-    LinkedList * a;
     initList(&list);
-    initList(&a);
     add(list,5);
     add(list,4);
     add(list,3);
-    add(a,2);
-    add(a,1);
-    concat(list,a);
+    addAfterIndex(list,6,1);
     int index = indexOf(*list,4,&compare);
-    printf("data:%d",get(*list,3));
+    printf("data:%d",get(*list,2));
     return 0;
 }
 
@@ -166,5 +162,26 @@ int concat(LinkedList * list,LinkedList * alist){
     list->length = list->length + alist->length;
     list->tail = alist->tail;
     free(alist);
+    return true;
+}
+
+int addAfterIndex(LinkedList * list, int ele,int index){
+    if(index >= list->length){
+        return false;
+    }
+    Link head = list->head;
+    int curIndex = 0;
+    while(head && curIndex < index){
+        head = head->next;
+        ++curIndex;
+    }
+    Link link = (Link)malloc(sizeof(Node));
+    link->next = NULL;
+    link->data = ele;
+    head->next = link;
+    list->length = list->length+1;
+    if(index == list->length-1){
+        list->tail = link;
+    }
     return true;
 }
