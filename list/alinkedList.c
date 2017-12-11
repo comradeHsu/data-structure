@@ -8,9 +8,9 @@ int main(){
     initList(&list);
     add(list,5);
     add(list,4);
-    set(list,1,9);
-    int data = get(*list,1);
-    printf("data:%d",data);
+    add(list,3);
+    int data = delIndex(list,1);
+    printf("data:%d",get(*list,1));
     return 0;
 }
 
@@ -108,4 +108,29 @@ int set(LinkedList * list, int index, int data){
     }
     head->data = data;
     return true;
+}
+
+int delIndex(LinkedList * list, int index){
+    int data;
+    if(index >= list->length){
+        return false;
+    }
+    if(index == 0){
+        data = delFirst(list);
+        return data;
+    }
+    if(index == list->length-1){
+        data = delLast(list);
+        return data;
+    }
+    Link head = list->head;
+    int curIndex = 0;
+    while(head && curIndex < index-1){
+        head = head->next;
+        ++curIndex;
+    }
+    Node * curNode = head->next;
+    head->next = curNode->next;
+    data = curNode->data;
+    return data;
 }
