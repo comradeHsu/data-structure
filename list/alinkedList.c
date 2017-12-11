@@ -8,8 +8,8 @@ int main(){
     initList(&list);
     add(list,5);
     add(list,4);
-    int data = delFirst(list);
-    printf("data:%d",first(*list));
+    int data = delLast(list);
+    printf("data:%d",data);
     return 0;
 }
 
@@ -45,6 +45,19 @@ int delFirst(LinkedList * list){
 int last(LinkedList list){
     Link link = list.tail;
     return link ->data;
+}
+
+int delLast(LinkedList * list){
+    Link tail = list->tail;
+    int data = tail->data;
+    Link head = list->head;
+    while(head->next){
+        head = head->next;
+    }
+    head->next = NULL;
+    list->tail = head;
+    free(tail);
+    return data;
 }
 
 int add(LinkedList * list, int ele){
