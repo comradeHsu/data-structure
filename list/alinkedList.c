@@ -9,8 +9,8 @@ int main(){
     add(list,5);
     add(list,4);
     add(list,3);
-    int data = delIndex(list,1);
-    printf("data:%d",get(*list,1));
+    int index = indexOf(*list,4,&compare);
+    printf("data:%d",index);
     return 0;
 }
 
@@ -133,4 +133,21 @@ int delIndex(LinkedList * list, int index){
     head->next = curNode->next;
     data = curNode->data;
     return data;
+}
+
+int indexOf(LinkedList list, int ele ,int (* compare)(int,int)){
+    Link head = list.head;
+    int index = 0;
+    while(head){
+        if((* compare)(head->data,ele) == 1){
+            return index;
+        }
+        head = head->next;
+        ++index;
+    }
+    return -1;
+}
+
+int compare(int ele, int to){
+    return ele == to;
 }
