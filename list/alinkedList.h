@@ -22,9 +22,13 @@ typedef struct {
 
 int initList(LinkedList ** L);
 
+int size(LinkedList list);
+
 int first(LinkedList list);
 
 int last(LinkedList list);
 
 int add(LinkedList * list, int ele);
+
+int delFirst(LinkedList * list);
 #endif //DATA_STRUCTURE_C_ALINKEDLIST_H
