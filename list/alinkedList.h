@@ -33,4 +33,6 @@ int add(LinkedList * list, int ele);
 int delFirst(LinkedList * list);
 
 int delLast(LinkedList * list);
+
+int get(LinkedList list, int index);
 #endif //DATA_STRUCTURE_C_ALINKEDLIST_H

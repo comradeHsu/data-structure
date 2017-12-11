@@ -8,7 +8,7 @@ int main(){
     initList(&list);
     add(list,5);
     add(list,4);
-    int data = delLast(list);
+    int data = get(*list,1);
     printf("data:%d",data);
     return 0;
 }
@@ -79,4 +79,18 @@ int add(LinkedList * list, int ele){
     list->tail=next;
     list->length = list->length+1;
     return 1;
+}
+
+int get(LinkedList list, int index){
+    if(index >= list.length){
+        return false;
+    }
+    Link head = list.head;
+    int curIndex = 0;
+    while(head && curIndex < index){
+        head = head->next;
+        ++curIndex;
+    }
+    int data = head->data;
+    return data;
 }
