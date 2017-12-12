@@ -9,7 +9,7 @@ int main(){
     return 0;
 }
 
-int initQuene(LinkedQuene ** quene){
+int initQuene(LinkedQuene ** quene){ //传递指针的指针，如果只是指针则作用不到原地址上
     *quene = (LinkedQuene *)malloc(sizeof(LinkedQuene));
     (*quene)->front = NULL;
     (*quene)->rear = NULL;
