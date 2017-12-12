@@ -7,7 +7,8 @@ int main(){
     struct Stack stack;
     initStack(&stack);
     push(&stack,1);
-    printf("size:%d",*(stack.top));
+    push(&stack,2);
+    printf("size:%d",getTop(stack));
     return 0;
 }
 
@@ -30,4 +31,11 @@ int push(Stack * stack,int ele){
     (stack->top)++;
     *(stack->top) = ele;
     return  true;
+}
+
+int getTop(Stack stack){
+    if(stack.top == stack.base){
+        return false;
+    }
+    return *(stack.top);
 }

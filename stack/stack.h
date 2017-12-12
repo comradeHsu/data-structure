@@ -22,4 +22,6 @@ typedef struct Stack{
 int initStack(Stack * stack);
 
 int push(Stack * stack,int ele);
+
+int getTop(Stack stack);
 #endif //DATA_STRUCTURE_C_STACK_H
