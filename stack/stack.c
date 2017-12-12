@@ -8,6 +8,7 @@ int main(){
     initStack(&stack);
     push(&stack,1);
     push(&stack,2);
+    int data = pop(&stack);
     printf("size:%d",getTop(stack));
     return 0;
 }
@@ -38,4 +39,13 @@ int getTop(Stack stack){
         return false;
     }
     return *(stack.top);
+}
+
+int pop(Stack * stack){
+    if(stack->top == stack->base){
+        return false;
+    }
+    int data = *(stack->top);
+    --(stack->top);
+    return data;
 }

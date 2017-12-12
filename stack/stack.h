@@ -24,4 +24,6 @@ int initStack(Stack * stack);
 int push(Stack * stack,int ele);
 
 int getTop(Stack stack);
+
+int pop(Stack * stack);
 #endif //DATA_STRUCTURE_C_STACK_H
