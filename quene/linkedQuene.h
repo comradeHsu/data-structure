@@ -22,4 +22,8 @@ typedef struct {
 } LinkedQuene;
 
 int initQuene(LinkedQuene ** quene);
+
+int size(LinkedQuene quene);
+
+int append(LinkedQuene * quene,int data);
 #endif //DATA_STRUCTURE_C_LINKEDQUENE_H
