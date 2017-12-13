@@ -26,4 +26,6 @@ int initQuene(LinkedQuene ** quene);
 int size(LinkedQuene quene);
 
 int append(LinkedQuene * quene,int data);
+
+int getHead(LinkedQuene quene);
 #endif //DATA_STRUCTURE_C_LINKEDQUENE_H

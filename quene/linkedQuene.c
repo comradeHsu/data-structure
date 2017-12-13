@@ -7,7 +7,7 @@ int main(){
     initQuene(&quene);
     append(quene,1);
     append(quene,3);
-    printf("data:%d",size(*quene));
+    printf("data:%d",getHead(*quene));
     return 0;
 }
 
@@ -44,4 +44,12 @@ int append(LinkedQuene * quene,int data){//添加元素至队尾
     rear->next = last;
     quene->rear = last;
     return true;
+}
+
+int getHead(LinkedQuene quene){
+    if(quene.front == NULL){
+        fprintf(stderr, "The quene is NULL...\n");
+        exit(EXIT_FAILURE);
+    }
+    return (quene.front)->data;
 }
