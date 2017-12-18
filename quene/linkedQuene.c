@@ -7,6 +7,7 @@ int main(){
     initQuene(&quene);
     append(quene,1);
     append(quene,3);
+    deleteHead(quene);
     printf("data:%d",getHead(*quene));
     return 0;
 }
@@ -44,6 +45,21 @@ int append(LinkedQuene * quene,int data){//添加元素至队尾
     rear->next = last;
     quene->rear = last;
     return true;
+}
+
+int deleteHead(LinkedQuene * quene){//删除队首元素
+    if(quene->front == NULL){
+        return false;
+    }
+    int data = quene->front->data;
+    QuenePtr front =
+    if(quene->front == quene->rear){
+        quene->front = quene->rear = NULL;
+        return data;
+    }
+    quene->front = quene->front->next;
+    free(quene->front);
+    return data;
 }
 
 int getHead(LinkedQuene quene){
