@@ -6,6 +6,7 @@ int main(){
     LinkedQuene * quene;
     initQuene(&quene);
     append(quene,1);
+    append(quene,2);
     append(quene,3);
     deleteHead(quene);
     printf("data:%d",getHead(*quene));
@@ -52,13 +53,13 @@ int deleteHead(LinkedQuene * quene){//删除队首元素
         return false;
     }
     int data = quene->front->data;
-    QuenePtr front =
+    QuenePtr front = quene->front;
     if(quene->front == quene->rear){
         quene->front = quene->rear = NULL;
         return data;
     }
     quene->front = quene->front->next;
-    free(quene->front);
+    free(front);
     return data;
 }
 
