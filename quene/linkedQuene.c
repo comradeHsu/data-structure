@@ -70,3 +70,13 @@ int getHead(LinkedQuene quene){
     }
     return (quene.front)->data;
 }
+
+int destoryQuene(LinkedQuene * quene){
+    QuenePtr front = quene->front;
+    while(front){
+        free(front);
+        front = front->next;
+    }
+    quene->rear = NULL;
+    return true;
+}
