@@ -9,6 +9,7 @@ int main(){
     append(quene,2);
     append(quene,3);
     deleteHead(quene);
+    destoryQuene(quene);
     printf("data:%d",getHead(*quene));
     return 0;
 }
@@ -72,10 +73,10 @@ int getHead(LinkedQuene quene){
 }
 
 int destoryQuene(LinkedQuene * quene){
-    QuenePtr front = quene->front;
-    while(front){
-        free(front);
-        front = front->next;
+    while(quene->front){
+        QuenePtr front = quene->front;
+        free(quene->front);
+        quene->front = front->next;
     }
     quene->rear = NULL;
     return true;
