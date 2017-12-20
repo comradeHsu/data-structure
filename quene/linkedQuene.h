@@ -30,4 +30,6 @@ int append(LinkedQuene * quene,int data);
 int getHead(LinkedQuene quene);
 
 int deleteHead(LinkedQuene * quene);
+
+int destoryQuene(LinkedQuene * quene);
 #endif //DATA_STRUCTURE_C_LINKEDQUENE_H
