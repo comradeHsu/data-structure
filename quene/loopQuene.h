@@ -10,10 +10,12 @@
 #include <stddef.h>
 #define true 1
 #define false 0
+#define MAXSIZE 100
 typedef struct {
     int * base;
     int front;
     int rear;
 } loopQuene;
 
+int initQuene(loopQuene * quene);
 #endif //DATA_STRUCTURE_C_LOOPQUENE_H
