@@ -20,4 +20,8 @@ typedef struct {
 int initQuene(loopQuene * quene);
 
 int size(loopQuene quene);
+
+int append(loopQuene * quene, int data);
+
+int getHead(loopQuene quene);
 #endif //DATA_STRUCTURE_C_LOOPQUENE_H
