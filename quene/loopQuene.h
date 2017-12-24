@@ -18,4 +18,6 @@ typedef struct {
 } loopQuene;
 
 int initQuene(loopQuene * quene);
+
+int size(loopQuene quene);
 #endif //DATA_STRUCTURE_C_LOOPQUENE_H

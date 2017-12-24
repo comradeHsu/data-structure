@@ -6,6 +6,7 @@
 int main(){
     loopQuene quene;
     initQuene(&quene);
+    printf("data:%d",size(quene));
     return 0;
 }
 
@@ -17,4 +18,8 @@ int initQuene(loopQuene * quene){
     }
     quene->front = quene->rear = 0;
     return true;
+}
+
+int size(loopQuene quene){
+    return (quene.rear - quene.front);
 }
