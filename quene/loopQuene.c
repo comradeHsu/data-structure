@@ -7,8 +7,9 @@ int main(){
     loopQuene quene;
     initQuene(&quene);
     append(&quene,3);
-    printf("data:%d",quene.rear);
     append(&quene,4);
+    printf("data:%d,rear:%d",quene.front,quene.rear);
+    printf("data:%d",deleteHead(&quene));
     printf("data:%d",getHead(quene));
     return 0;
 }
@@ -28,15 +29,26 @@ int size(loopQuene quene){
 }
 
 int append(loopQuene * quene, int data){
-    if((quene->rear + 1) % MAXSIZE == quene->front){
+    if((quene->rear - quene->front) == MAXSIZE){
         fprintf(stderr, "Overflow...\n");
         exit(EXIT_FAILURE);
     }
     quene->base[quene->rear] = data;
-    quene->rear = (quene->rear+1) % MAXSIZE;
+    quene->rear = (quene->rear+1) % MAXSIZE;//此处有bug，要修复
+    printf("data:%d",quene->rear);
     return true;
 }
 
 int getHead(loopQuene quene){
     return quene.base[quene.front];
+}
+
+int deleteHead(loopQuene * quene){
+    if(quene->front == quene->rear){
+        fprintf(stderr, "The quene is null...\n");
+        exit(EXIT_FAILURE);
+    }
+    int data = quene->base[quene->front];
+    quene->front = (quene->front + 1) % MAXSIZE;
+    return data;
 }

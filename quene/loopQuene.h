@@ -10,7 +10,7 @@
 #include <stddef.h>
 #define true 1
 #define false 0
-#define MAXSIZE 100
+#define MAXSIZE 2
 typedef struct {
     int * base;
     int front;
@@ -24,4 +24,6 @@ int size(loopQuene quene);
 int append(loopQuene * quene, int data);
 
 int getHead(loopQuene quene);
+
+int deleteHead(loopQuene * quene);
 #endif //DATA_STRUCTURE_C_LOOPQUENE_H
