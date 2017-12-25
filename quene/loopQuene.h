@@ -10,7 +10,7 @@
 #include <stddef.h>
 #define true 1
 #define false 0
-#define MAXSIZE 2
+#define MAXSIZE 3
 typedef struct {
     int * base;
     int front;

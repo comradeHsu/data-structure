@@ -8,7 +8,7 @@ int main(){
     initQuene(&quene);
     append(&quene,3);
     append(&quene,4);
-    printf("data:%d,rear:%d",quene.front,quene.rear);
+    printf("sss:%d",NULL == 0);
     printf("data:%d",deleteHead(&quene));
     printf("data:%d",getHead(quene));
     return 0;
@@ -29,13 +29,12 @@ int size(loopQuene quene){
 }
 
 int append(loopQuene * quene, int data){
-    if((quene->rear - quene->front) == MAXSIZE){
+    if((quene->rear + 1) % MAXSIZE == quene->front){ //已解决
         fprintf(stderr, "Overflow...\n");
         exit(EXIT_FAILURE);
     }
     quene->base[quene->rear] = data;
-    quene->rear = (quene->rear+1) % MAXSIZE;//此处有bug，要修复
-    printf("data:%d",quene->rear);
+    quene->rear = (quene->rear+1) % MAXSIZE;/*//此处有bug，要修复*/
     return true;
 }
 
