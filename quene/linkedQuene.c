@@ -33,7 +33,7 @@ int size(LinkedQuene quene){
 
 int append(LinkedQuene * quene,int data){//添加元素至队尾
     QuenePtr last = (QuenePtr)malloc(sizeof(queneNode));
-    if(!last){
+    if(!last){//内存分配失败
         return false;
     }
     last->next = NULL;
