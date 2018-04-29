@@ -16,7 +16,7 @@ int main(){
 
 int initQuene(loopQuene * quene){
     quene->base = (int *) malloc(MAXSIZE * sizeof(int));
-    if(!quene->base){
+    if(!quene->base){  //内存分配失败
         fprintf(stderr, "eroor...\n");
         exit(EXIT_FAILURE);
     }
@@ -34,7 +34,7 @@ int append(loopQuene * quene, int data){
         exit(EXIT_FAILURE);
     }
     quene->base[quene->rear] = data;
-    quene->rear = (quene->rear+1) % MAXSIZE;/*//此处有bug，要修复*/
+    quene->rear = (quene->rear+1) % MAXSIZE;/*//此处有bug，要修复*/  /*已修复*/
     return true;
 }
 
